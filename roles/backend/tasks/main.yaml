@@ -16,7 +16,8 @@
 
 - name: include common
   include_role:
-   name: common      
+   name: common
+   tasks_from: main      
 
 # - name: Creating DIR
 #   ansible.builtin.file:
