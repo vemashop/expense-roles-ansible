@@ -1,6 +1,7 @@
 ---
 - name: Configuring MySql server
-  hosts: mysql
+  hosts: localhost
+  connection: local
   become: yes
   vars_files:
   - roles/mysql/vars/vault.yaml
