@@ -9,10 +9,10 @@
     enabled: yes
     state: started
 
-- name: Deleting directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html/*    
-    state: absent
+# - name: Deleting directory
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html/*    
+#     state: absent
 
 - name: include common
   include_role:
