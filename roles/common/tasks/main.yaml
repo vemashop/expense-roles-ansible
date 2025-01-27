@@ -1,14 +1,20 @@
 - name: Deleting directory
+  tags:
+  - deployment
   ansible.builtin.file:
     path: "{{APP_PATH}}"  
     state: absent 
 
 - name: Creating directory
+  tags:
+  - deployment
   ansible.builtin.file:
     path: "{{APP_PATH}}"      
     state: directory 
 
 - name: unarchiving code
+  tags:
+  - deployment
   ansible.builtin.unarchive:
     src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{COMPONENT}}-v2.zip
     dest: "{{APP_PATH}}"  

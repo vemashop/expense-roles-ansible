@@ -36,10 +36,14 @@
 #     remote_src: yes 
 
 - name: Installing dependencies   
+  tags:
+  - deployment
   community.general.npm:
     path: /app
 
 - name: Copying backend.service file
+  tags:
+  - deployment
   ansible.builtin.template:
     src: backend.service-template
     dest: /etc/systemd/system/backend.service
@@ -58,6 +62,8 @@
     state: present  
 
 - name: import mysql data
+  tags:
+  - deployment
   community.mysql.mysql_db:
     state: import
     name: all
@@ -67,6 +73,8 @@
     target: /app/schema/backend.sql
 
 - name: Enable and restart
+  tags:
+  - deployment
   ansible.builtin.service:
     name: backend
     enabled: yes 

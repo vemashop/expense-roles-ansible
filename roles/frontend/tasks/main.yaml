@@ -36,6 +36,8 @@
 #     remote_src: yes
 
 - name: copying .conf file
+  tags:
+  - deployment
   ansible.builtin.copy:
     src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
