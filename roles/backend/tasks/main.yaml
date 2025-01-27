@@ -36,7 +36,7 @@
 
 - name: Copying backend.service file
   ansible.builtin.template:
-    src: /backend.service-template
+    src: backend.service-template
     dest: /etc/systemd/system/backend.service
     
 
