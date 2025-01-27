@@ -14,21 +14,25 @@
     path: /usr/share/nginx/html/*    
     state: absent
 
-- name: Creating directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html    
-    state: directory 
+- name: include common
+  include_role:
+   name: common    
 
-- name: Downloading code
-  ansible.builtin.get_url: 
-    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-    dest: /tmp/frontend.zip
+# - name: Creating directory
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html    
+#     state: directory 
 
-- name: unarchiving code
-  ansible.builtin.unarchive:
-    src: /tmp/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
+# - name: Downloading code
+#   ansible.builtin.get_url: 
+#     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+#     dest: /tmp/frontend.zip
+
+# - name: unarchiving code
+#   ansible.builtin.unarchive:
+#     src: /tmp/frontend.zip
+#     dest: /usr/share/nginx/html
+#     remote_src: yes
 
 - name: copying .conf file
   ansible.builtin.copy:
