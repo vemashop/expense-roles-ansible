@@ -42,8 +42,6 @@
     path: /app
 
 - name: Copying backend.service file
-  tags:
-  - deployment
   ansible.builtin.template:
     src: backend.service-template
     dest: /etc/systemd/system/backend.service
